@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="taskTitle" type="id" />
+    <item name="taskDescription" type="id" />
+    <item name="taskStatus" type="id" />
+    <item name="taskStart" type="id" />
+    <item name="taskEnd" type="id" />
+    <item name="recycleview" type="id" />
+</resources>
