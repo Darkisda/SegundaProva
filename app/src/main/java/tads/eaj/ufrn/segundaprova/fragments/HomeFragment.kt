@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.adapters.TaskAdapter
@@ -30,6 +31,10 @@ class HomeFragment : Fragment() {
         binding.apply {
             recycleview.adapter = adapter
             recycleview.layoutManager = layout
+
+            cadastraButton.setOnClickListener {
+                Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
+            }
         }
 
         setHasOptionsMenu(true)

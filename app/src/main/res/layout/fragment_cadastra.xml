@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cadastroText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/taskTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/t_tulo_da_task"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/inputTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/t_tulo"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/taskDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descri_o_da_task"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/inputTaskDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/taskStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status_da_task"
+            android:textSize="24sp" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/inputTaskStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionHint="Digite o Status"
+            android:hint="@string/status"
+            android:completionThreshold="1"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/taskStartText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Começa:"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/inputTaskStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Data de Início"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/taskEndText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Termina:"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/inputTaskEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Data de Encerramento"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/cadastraButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+</layout>

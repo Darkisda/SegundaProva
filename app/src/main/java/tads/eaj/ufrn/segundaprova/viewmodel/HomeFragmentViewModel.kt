@@ -17,6 +17,6 @@ class HomeFragmentViewModel(application: Application) : AndroidViewModel(applica
                 .allowMainThreadQueries()
                 .build()
         }
-        tasks = db.taskDAO().findAll()
+        tasks = db.taskDAO().findAllByStatus()
     }
 }

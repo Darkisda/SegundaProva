@@ -18,9 +18,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val t1 = Task("Teste", "Descrição", "Ativo", "20/10/2020", "24/10/2020")
-
-        db.taskDAO().createTask(t1)
     }
 }
