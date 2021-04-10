@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="tads.eaj.ufrn.segundaprova.viewmodel.CadastraFragmentViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,23 +27,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/t_tulo_da_task"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/inputTaskTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/t_tulo"
-            android:textSize="24sp" />
+            android:inputType="text"
+            android:labelFor="@id/taskTitleText"
+            android:text="@{viewmodel.taskTitle}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/taskDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/descri_o_da_task"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/inputTaskDescription"
@@ -46,62 +53,66 @@
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            android:textSize="24sp" />
+            android:labelFor="@id/taskDescriptionText"
+            android:text="@{viewmodel.taskDescription}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/taskStatusText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/status_da_task"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
-        <MultiAutoCompleteTextView
+        <EditText
             android:id="@+id/inputTaskStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:completionHint="Digite o Status"
-            android:hint="@string/status"
-            android:completionThreshold="1"
-            android:textSize="24sp" />
+            android:inputType="text"
+            android:text="@{viewmodel.taskStatus}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/taskStartText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Começa:"
-            android:textSize="24sp" />
+            android:text="@string/come_a"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/inputTaskStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Data de Início"
-            android:textSize="24sp" />
+            android:inputType="text"
+            android:labelFor="@id/taskStartText"
+            android:text="@{viewmodel.taskStart}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/taskEndText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Termina:"
-            android:textSize="24sp" />
+            android:text="@string/termina"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/inputTaskEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Data de Encerramento"
-            android:textSize="24sp" />
+            android:inputType="text"
+            android:labelFor="@id/taskEndText"
+            android:text="@{viewmodel.taskEnd}"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/cadastraButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:textSize="24sp" />
+            android:text="@string/cadastrar"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </layout>

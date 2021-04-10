@@ -11,4 +11,8 @@
     <string name="tarefas">Tarefas</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="listar_todos">Listar Todos</string>
+    <string name="come_a">Começa:</string>
+    <string name="termina">Termina:</string>
+    <string name="editar">Editar</string>
+    <string name="detalhes">detalhes</string>
 </resources>

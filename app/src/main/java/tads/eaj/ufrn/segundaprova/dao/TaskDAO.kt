@@ -9,7 +9,7 @@ interface TaskDAO {
     @Query("SELECT * FROM task_table")
     fun findAll(): LiveData<List<Task>>
 
-    @Query("SELECT * FROM task_table WHERE task_status = 'ATIVO'")
+    @Query("SELECT * FROM task_table WHERE task_status = 'ATIVO' ")
     fun findAllByStatus(): LiveData<List<Task>>
 
     @Query("SELECT * FROM task_table WHERE id = :id")

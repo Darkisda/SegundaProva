@@ -1,6 +1,8 @@
 package tads.eaj.ufrn.segundaprova.viewmodel
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.os.AsyncTask
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
@@ -9,11 +11,13 @@ import tads.eaj.ufrn.segundaprova.entities.Task
 
 class CadastraFragmentViewModel(application: Application) : AndroidViewModel(application) {
 
-    var taskTitle = MutableLiveData<String>("")
-    var taskDescription = MutableLiveData<String>("")
-    var taskStatus = MutableLiveData<String>("")
-    var taskStart = MutableLiveData<String>("")
-    var taskEnd = MutableLiveData<String>("")
+    private var appDatabase: AppDatabase
+
+    var taskTitle = ""
+    var taskDescription = ""
+    var taskStatus = ""
+    var taskStart = ""
+    var taskEnd = ""
 
 
     init {
@@ -23,7 +27,20 @@ class CadastraFragmentViewModel(application: Application) : AndroidViewModel(app
                 .allowMainThreadQueries()
                 .build()
         }
+
+        appDatabase = db
     }
 
-//    var task = Task(taskTitle.value!!, taskDescription.value!!, taskStatus.value!!, taskStart.value!!, taskEnd.value!!)
+    @SuppressLint("StaticFieldLeak")
+    private inner class CreateTask() : AsyncTask<String, String, Unit>() {
+        override fun doInBackground(vararg params: String?) {
+            val task = Task(taskTitle, taskDescription, taskStatus, taskStart, taskEnd)
+
+            appDatabase.taskDAO().createTask(task)
+        }
+    }
+
+    fun createTask() {
+        CreateTask().execute().get()
+    }
 }

@@ -37,12 +37,12 @@ class HomeFragment : Fragment() {
             }
         }
 
-        setHasOptionsMenu(true)
-
         viewmodel.tasks.observe(viewLifecycleOwner, {
             adapter.tasks = it
             adapter.notifyDataSetChanged()
         })
+
+        setHasOptionsMenu(true)
 
         return binding.root
     }

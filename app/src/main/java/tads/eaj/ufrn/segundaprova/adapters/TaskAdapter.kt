@@ -23,9 +23,6 @@ class TaskAdapter() : RecyclerView.Adapter<TaskViewHolder>() {
         val chosenTask = tasks[position]
 
         holder.taskTitle.text = chosenTask.title
-        holder.taskDescription.text = chosenTask.description
         holder.taskStatus.text = chosenTask.status
-        holder.taskStart.text = chosenTask.start
-        holder.taskEnd.text = chosenTask.end
     }
 }
