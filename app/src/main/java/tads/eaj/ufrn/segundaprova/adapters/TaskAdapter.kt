@@ -24,5 +24,7 @@ class TaskAdapter() : RecyclerView.Adapter<TaskViewHolder>() {
 
         holder.taskTitle.text = chosenTask.title
         holder.taskStatus.text = chosenTask.status
+        holder.taskStart.text = chosenTask.start
+        holder.taskEnd.text = chosenTask.end
     }
 }

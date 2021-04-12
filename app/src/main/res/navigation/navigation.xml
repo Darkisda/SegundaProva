@@ -13,10 +13,44 @@
         <action
             android:id="@+id/action_homeFragment_to_cadastraFragment"
             app:destination="@id/cadastraFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alteraFragment"
+            app:destination="@id/alteraFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastraFragment"
         android:name="tads.eaj.ufrn.segundaprova.fragments.CadastraFragment"
         android:label="CadastraFragment"
-        tools:layout="@layout/fragment_cadastra"/>
+        tools:layout="@layout/fragment_cadastra">
+        <action
+            android:id="@+id/action_cadastraFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="tads.eaj.ufrn.segundaprova.fragments.DetalhesFragment"
+        android:label="DetalhesFragment"
+        tools:layout="@layout/fragment_detalhes">
+        <argument
+            android:name="taskId"
+            app:argType="integer"
+            android:defaultValue="1"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/alteraFragment"
+        android:name="tads.eaj.ufrn.segundaprova.fragments.AlteraFragment"
+        android:label="AlteraFragment"
+        tools:layout="@layout/fragment_altera">
+        <argument
+            android:name="taskId"
+            app:argType="integer"
+            android:defaultValue="1"/>
+        <action
+            android:id="@+id/action_alteraFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

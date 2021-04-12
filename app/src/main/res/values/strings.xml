@@ -14,5 +14,8 @@
     <string name="come_a">Começa:</string>
     <string name="termina">Termina:</string>
     <string name="editar">Editar</string>
-    <string name="detalhes">detalhes</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="deletar">Deletar</string>
+    <string name="sobre">Sobre</string>
+    <string name="alterar">Alterar</string>
 </resources>

@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.databinding.FragmentCadastraBinding
 import tads.eaj.ufrn.segundaprova.viewmodel.CadastraFragmentViewModel
@@ -48,7 +50,13 @@ class CadastraFragment : Fragment() {
             }
 
             cadastraButton.setOnClickListener {
-                viewmodel?.createTask()
+                if( viewmodel?.taskTitle != "" && viewmodel?.taskDescription != "" && viewmodel?.taskStatus != "" && viewmodel?.taskStart != "" && viewmodel?.taskEnd != "") {
+                    viewmodel?.createTask()
+                    Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
+                }
+                else {
+                    Toast.makeText(parentFragment?.requireContext(), "Por favor preencha todos os campos", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

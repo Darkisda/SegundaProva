@@ -1,18 +1,19 @@
 package tads.eaj.ufrn.segundaprova.fragments
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.adapters.TaskAdapter
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
-import tads.eaj.ufrn.segundaprova.entities.Task
+import tads.eaj.ufrn.segundaprova.utils.RecyclerViewClickListener
 import tads.eaj.ufrn.segundaprova.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
@@ -35,6 +36,25 @@ class HomeFragment : Fragment() {
             cadastraButton.setOnClickListener {
                 Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
             }
+
+            recycleview.addOnItemTouchListener(
+                    RecyclerViewClickListener(this@HomeFragment.requireContext(),
+                    recycleview,
+                    object: RecyclerViewClickListener.clickListener {
+                        override fun onClick(v: View, position: Int) {
+                            Navigation.findNavController(v).navigate(
+                                HomeFragmentDirections.actionHomeFragmentToDetalhesFragment().setTaskId(viewmodel.tasks.value!![position].id)
+                            )
+                        }
+
+                        override fun onHolding(v: View, position: Int) {
+                            Navigation.findNavController(v).navigate(
+                                HomeFragmentDirections.actionHomeFragmentToAlteraFragment().setTaskId(viewmodel.tasks.value!![position].id)
+                            )
+                        }
+                    })
+            )
+
         }
 
         viewmodel.tasks.observe(viewLifecycleOwner, {
@@ -45,5 +65,9 @@ class HomeFragment : Fragment() {
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, this.findNavController()) || super.onOptionsItemSelected(item)
     }
 }
